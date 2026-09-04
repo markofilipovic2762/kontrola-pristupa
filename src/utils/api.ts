@@ -1,6 +1,6 @@
 //const API_URL = "http://python.zelsd.rs:8088";
 //const API_URL = "http://10.21.22.37:8088";
-const API_URL = "http://10.21.57.48:8000"
+const API_URL = "http://10.21.57.57:8000"
 
 export interface MbrResponse {
   maticni_broj: string;
@@ -250,7 +250,7 @@ type PendingUser = {
 export async function getZahteviZaPristup(): Promise<PendingUser[]> {
   try {
     const accessToken = localStorage.getItem("accessToken/kontrolapristupa");
-    const response = await fetch(`http://10.21.59.31:8000/api/mobile/nfc_mobile/requests`, {
+    const response = await fetch(`${API_URL}/api/mobile/nfc_mobile/requests`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -275,7 +275,7 @@ export async function getZahteviZaPristup(): Promise<PendingUser[]> {
 export async function promeniStatus(nfc_id: number, status: string) {
   try {
     //const accessToken = localStorage.getItem("accessToken/kontrolapristupa");
-    const response = await fetch(`http://10.21.59.31:8000/api/mobile/nfc_mobile/${nfc_id}/status`, {
+    const response = await fetch(`${API_URL}/api/mobile/nfc_mobile/${nfc_id}/status`, {
       method: "PUT",
       headers: {
         //Authorization: `Bearer ${accessToken}`,
